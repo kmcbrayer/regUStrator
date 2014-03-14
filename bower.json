@@ -1,0 +1,13 @@
+{
+  "name": "reg-ustrator",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "1.2.6",
+    "jquery": "~2.1.0",
+    "bootstrap": "~3.1.1",
+    "angular-sanitize": "1.2.6",
+    "angular-route": "1.2.6",
+    "angular-touch": "1.2.6",
+    "angular-resource": "1.2.6"
+  }
+}
