@@ -10,6 +10,10 @@ angular.module('regUstratorApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/newroute', {
+        templateUrl: 'views/newroute.html',
+        controller: 'NewrouteCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

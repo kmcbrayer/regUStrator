@@ -17,7 +17,7 @@
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
   </head>
   <body ng-app="regUstratorApp">
     <!--[if lt IE 7]>
@@ -37,16 +37,23 @@
     <!-- endbower -->
     <!-- endbuild -->
 
+        <!--<script src="lib/three.js"></script> -->
+        <script src="https://rawgithub.com/mrdoob/three.js/master/build/three.js"></script>
         <script src="lib/angular.js"></script>
         <script src="lib/angular-resource.js"></script>
         <script src="lib/angular-route.js"></script>
         <script src="lib/angular-touch.js"></script>
         <script src="lib/angular-sanitize.js"></script>
         <script src="lib/jquery.js"></script>
-        <script src="lib/bootstrap/js/bootstrap.js"></script>
+        <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/directives/box.js"></script>
+        <script src="scripts/directives/screen.js"></script>
+        <script src="scripts/services/sceneData.js"></script>
+        <script src="scripts/services/drawObjs.js"></script>
+        <script src="scripts/directives/renderer.js"></script>
         <!-- endbuild -->
 
 </body>
