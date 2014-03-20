@@ -7,15 +7,16 @@ angular.module('regUstratorApp')
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
         for (var obj in drawObjs.objs){
-          sceneData.scene.add(obj);
+          sceneData.scene.add(drawObjs.objs[obj]);
         }
-        console.log(sceneData.scene);
 
         sceneData.render = function() {
         	requestAnimationFrame(sceneData.render);
         	sceneData.renderer.render(sceneData.scene, sceneData.camera);
+          //drawObjs.objs[0].rotation.x += 0.1;
+          //drawObjs.objs[0].rotation.y += 0.1;
         };
-        //sceneData.renderer.setClearColor( sceneData.scene.fog.color, 1 );
+        
         sceneData.render();
       }
     };

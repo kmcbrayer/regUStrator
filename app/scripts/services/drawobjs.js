@@ -8,34 +8,39 @@ angular.module('regUstratorApp')
     //where we hold the objs to loop through later
     ObjFactory.prototype.objs = [];
 
-    // box for testing
     var Box = function(x,y,z,color){
-      //var geometry = new THREE.CubeGeometry(ifExists(x,1),ifExists(y,1),ifExists(z,1));
-      var geometry = new THREE.CubeGeometry(2,2,2);
-      var material = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
+      var geometry = new THREE.CubeGeometry(1,1,1);
+
+      var material = new THREE.MeshBasicMaterial({'color':color});
       var cube = new THREE.Mesh( geometry, material );
+      cube.position.set(x,y,z); 
 
       return cube;
     };
     Box.prototype = new ObjFactory();
     Box.prototype.constructor = Box;
 
-    //you cant always get what you want
-    //put in utils, maybe factory
-    var ifExists = function(want, get){
-      if (want !== null){
-        return want;
-      }else{
-        return get;
-      }
+    var Line = function(x1,y1,z1,x2,y2,z2,color){
+      var material = new THREE.LineBasicMaterial({
+        color: 0x111111
+      });
+      var geometry = new THREE.Geometry();
+      geometry.vertices.push( new THREE.Vector3( x1, y1, z1) );
+      geometry.vertices.push( new THREE.Vector3( x2, y2, z2) );
+      var line = new THREE.Mesh( geometry, material );
+      
+      return line;
     };
+    Line.prototype = new ObjFactory();
+    Line.prototype.constructor = Line;
     
     ObjFactory.prototype.init = function(options){
-      var self = this;
       if (options.type === 'Box'){
-        self.objs.push(new Box(options.x,options.y,options.z,options.color));
+        this.objs.push(new Box(options.x,options.y,options.z,options.color));
       }
-      return new Box(options.x,options.y,options.z,options.color);
+      if (options.type === 'Line'){
+        this.objs.push(new Line(options.x1,options.y1,options.z1,options.x2,options.y2,options.z2),options.color);
+      }
     };
     
     return new ObjFactory();

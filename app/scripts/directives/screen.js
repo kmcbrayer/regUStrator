@@ -7,12 +7,12 @@ angular.module('regUstratorApp')
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
         sceneData.scene = new THREE.Scene();
-        sceneData.camera = new THREE.PerspectiveCamera( 75, 700/ 600, 0.1, 1000 );
       	sceneData.renderer = new THREE.WebGLRenderer(); 
       	sceneData.renderer.setSize( 700, 600 );
-        sceneData.renderer.setClearColor();
-        
-     	  element.append( sceneData.renderer.domElement );
+        //fog
+        sceneData.scene.fog = new THREE.Fog( 0xffffff, 2000, 10000 );
+        sceneData.renderer.setClearColor( sceneData.scene.fog.color, 1 );
+      	element.append( sceneData.renderer.domElement );
       }
     };
   });
