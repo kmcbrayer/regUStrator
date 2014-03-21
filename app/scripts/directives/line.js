@@ -1,13 +1,13 @@
 'use strict';
 var setLineDefaults = function(){
   return {
-    x1:0,
+    x1:-10,
     y1:0,
     z1:0,
-    x2:20,
-    y2:2,
-    z2:2,
-    color:'0x000000'
+    x2:0,
+    y2:10,
+    z2:0,
+    color:'0x0000ff'
   };
 };
 
@@ -30,7 +30,7 @@ angular.module('regUstratorApp')
           x2:attrs.options.x2,
           y2:attrs.options.y2,
           z2:attrs.options.z2,
-          color:attrs.options.color,
+          color:attrs.options.color
         });
       }
     };

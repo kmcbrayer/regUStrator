@@ -7,19 +7,17 @@
   </ul>
   <h3 class="text-muted">kxm8949</h3>
 </div>
-
-<div class="newDiv">
-    <li ng-repeat="thing in newThings">
-      {{thing}}
-    </li>
-</div>
-
+<div style="border:1px solid black">
 <screen id="main_screen"></screen>
-<camera options="{'x':1,'y':2,'z':10}"></camera>
+<camera options="{'x':0,'y':3,'z':10}"></camera>
 
 <box></box>
 <box options="{'x':1,'y':2,'z':3,'color':0x0000ff}"></box>
 
-<line></line>
+<line options="{'x1':-10,'y1':0,'z1':0,'x2':10,'y2':0,'z2':0,'color':0xCCCCCC}"></line>
+<line options="{'x1':0,'y1':-10,'z1':0,'x2':0,'y2':10,'z2':0,'color':0xCCCCCC}"></line>
 
 <renderer></renderer>
+</div>
+
+

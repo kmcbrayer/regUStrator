@@ -16,6 +16,9 @@ angular.module('regUstratorApp')
         sceneData.camera.position.x = attrs.options.x;
         sceneData.camera.position.y = attrs.options.y;
         sceneData.camera.position.z = attrs.options.z;
+
+        sceneData.controls = new THREE.OrbitControls( sceneData.camera );
+        
       }
     };
   });
