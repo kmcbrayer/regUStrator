@@ -17,8 +17,6 @@ angular.module('regUstratorApp')
         };
         //for now have to add events here
         sceneData.controls.addEventListener( 'change', sceneData.render );
-
-
         sceneData.render();
       }
     };

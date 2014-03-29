@@ -1,24 +1,33 @@
 'use strict';
 
 angular.module('regUstratorApp')
-  .factory('drawObjs', function () {
+  .factory('drawObjs', function (boxProperties) {
     //this is for all objects to be drawn on 
     var ObjFactory = function(){};
 
     //where we hold the objs to loop through later
     ObjFactory.prototype.objs = [];
 
-    var Box = function(x,y,z,color){
-      var geometry = new THREE.CubeGeometry(1,1,1);
-
-      var material = new THREE.MeshBasicMaterial({'color':color});
+    var Box = function(props){
+      var geometry = new THREE.CubeGeometry(props.height,props.width,props.depth);
+      var material = new THREE.MeshBasicMaterial({'color':props.color});
       var cube = new THREE.Mesh( geometry, material );
-      cube.position.set(x,y,z); 
-
+      cube.position.set(props.x,props.y,props.z);
       return cube;
     };
     Box.prototype = new ObjFactory();
     Box.prototype.constructor = Box;
+
+    var makeBoxProperties = function(props){
+      for (var key in boxProperties){
+        for (var k in props){
+          if (k === key){
+            boxProperties[key] = props[k];
+          }
+        }
+      }
+      return boxProperties;
+    };
 
     var Line = function(x1,y1,z1,x2,y2,z2,color){
       var material = new THREE.LineBasicMaterial({
@@ -35,7 +44,9 @@ angular.module('regUstratorApp')
     
     ObjFactory.prototype.init = function(options){
       if (options.type === 'Box'){
-        this.objs.push(new Box(options.x,options.y,options.z,options.color));
+        var props = makeBoxProperties(options.props);
+        console.log(props);
+        this.objs.push(new Box(props));
       }
       if (options.type === 'Line'){
         this.objs.push(

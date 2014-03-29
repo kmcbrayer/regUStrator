@@ -1,11 +1,10 @@
-parse html in js??
-
+parse html in js:??
 get <header>
-for div in header:
+	for div in header:
 	add box at top of screen
-		color and text in box.
-
+	color and text in box.
 get <article>
-for div in article:
+	for div in article:
 	make flat page
 
+	
