@@ -18,19 +18,20 @@ angular.module('regUstratorApp')
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
         if (!attrs.options){
-          attrs.options = setLineDefaults();
+          attrs.options = {};
         }else{
           attrs.options = eval("("+attrs.options+")");
         }
+        if (attrs.props){
+          for (var i in objProps){
+            if (attrs.props === objProps[i].name){
+              attrs.options = objProps[i].attrs;
+            }
+          }
+        }
         drawObjs.init({
           type:'Line',
-          x1:attrs.options.x1,
-          y1:attrs.options.y1,
-          z1:attrs.options.z1,
-          x2:attrs.options.x2,
-          y2:attrs.options.y2,
-          z2:attrs.options.z2,
-          color:attrs.options.color
+          props: attrs.options
         });
       }
     };

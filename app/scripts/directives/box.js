@@ -1,14 +1,5 @@
 'use strict';
-/*
-var setBoxDefaults = function(){
-  return {
-    x:0,
-    y:0,
-    z:0,
-    color:'0x000000'
-  };
-};
-*/
+
 angular.module('regUstratorApp')
   .directive('box', function (drawObjs,objProps) {
     return {

@@ -7,8 +7,21 @@ angular.module('regUstratorApp')
         'attrs':{
           'x':-1,
           'y':2,
-          'z':3
+          'z':3,
+          'color':0x00ff00
+        }
+      },
+      {'name':'box2',
+        'attrs':{
+          'z':-2,
+          'width':2,
+        }
+      },
+      {'name':'line1',
+        'attrs':{
+          'color':0xDDDDDD
         }
       }
+
       ];
   });

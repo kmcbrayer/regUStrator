@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('regUstratorApp')
-  .factory('drawObjs', function (boxProperties) {
+  .factory('drawObjs', function () {
     //this is for all objects to be drawn on 
     var ObjFactory = function(){};
 
@@ -9,16 +9,15 @@ angular.module('regUstratorApp')
     ObjFactory.prototype.objs = [];
 
     var Box = function(props){
-      var geometry = new THREE.CubeGeometry(props.height,props.width,props.depth);
-      var material = new THREE.MeshBasicMaterial({'color':props.color});
-      var cube = new THREE.Mesh( geometry, material );
-      cube.position.set(props.x,props.y,props.z);
-      return cube;
-    };
-    Box.prototype = new ObjFactory();
-    Box.prototype.constructor = Box;
-
-    var makeBoxProperties = function(props){
+      var boxProperties = {
+        'x': 0,
+        'y': 0,
+        'z': 0,
+        'height':1,
+        'width':1,
+        'depth':1,
+        'color': 0xff0000
+      }
       for (var key in boxProperties){
         for (var k in props){
           if (k === key){
@@ -26,16 +25,38 @@ angular.module('regUstratorApp')
           }
         }
       }
-      return boxProperties;
+      var geometry = new THREE.CubeGeometry(boxProperties.width,boxProperties.height,boxProperties.depth);
+      var material = new THREE.MeshBasicMaterial({'color':boxProperties.color});
+      var cube = new THREE.Mesh( geometry, material );
+      cube.position.set(boxProperties.x,boxProperties.y,boxProperties.z);
+      return cube;
     };
+    Box.prototype = new ObjFactory();
+    Box.prototype.constructor = Box;
 
-    var Line = function(x1,y1,z1,x2,y2,z2,color){
+    var Line = function(props){
+      var lineProperties = {
+        'x1':-10,
+        'y1':0,
+        'z1':0,
+        'x2':10,
+        'y2':0,
+        'z2':0,
+        'color':0xCCCCCC
+      }
+      for (var key in lineProperties){
+        for (var k in props){
+          if (k === key){
+            lineProperties[key] = props[k];
+          }
+        }
+      }
       var material = new THREE.LineBasicMaterial({
-        color: color
+        color: lineProperties.color
       });
       var geometry = new THREE.Geometry();
-      geometry.vertices.push( new THREE.Vector3( x1, y1, z1) );
-      geometry.vertices.push( new THREE.Vector3( x2, y2, z2) );
+      geometry.vertices.push( new THREE.Vector3( lineProperties.x1, lineProperties.y1, lineProperties.z1) );
+      geometry.vertices.push( new THREE.Vector3( lineProperties.x2, lineProperties.y2, lineProperties.z2) );
       
       return new THREE.Line( geometry, material );
     };
@@ -44,13 +65,11 @@ angular.module('regUstratorApp')
     
     ObjFactory.prototype.init = function(options){
       if (options.type === 'Box'){
-        var props = makeBoxProperties(options.props);
-        console.log(props);
-        this.objs.push(new Box(props));
+        this.objs.push(new Box(options.props));
       }
       if (options.type === 'Line'){
         this.objs.push(
-          new Line(options.x1,options.y1,options.z1,options.x2,options.y2,options.z2,options.color)
+          new Line(options.props)
         );
       }
     };
