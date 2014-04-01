@@ -1,18 +1,7 @@
 'use strict';
-var setLineDefaults = function(){
-  return {
-    x1:-10,
-    y1:0,
-    z1:0,
-    x2:0,
-    y2:10,
-    z2:0,
-    color:'0x0000ff'
-  };
-};
 
 angular.module('regUstratorApp')
-  .directive('line', function (drawObjs) {
+  .directive('line', function (drawObjs,objProps) {
     return {
       template: '<div></div>',
       restrict: 'E',

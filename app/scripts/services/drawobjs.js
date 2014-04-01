@@ -51,6 +51,7 @@ angular.module('regUstratorApp')
           }
         }
       }
+      console.log(lineProperties);
       var material = new THREE.LineBasicMaterial({
         color: lineProperties.color
       });
@@ -68,9 +69,7 @@ angular.module('regUstratorApp')
         this.objs.push(new Box(options.props));
       }
       if (options.type === 'Line'){
-        this.objs.push(
-          new Line(options.props)
-        );
+        this.objs.push(new Line(options.props));
       }
     };
     
