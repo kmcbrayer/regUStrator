@@ -5,12 +5,16 @@ angular.module('regUstratorApp')
     return {
       template: '<div></div>',
       restrict: 'E',
+      scope: {
+      	options: '='
+      },
       link: function postLink(scope, element, attrs) {
         if (!attrs.options){
           attrs.options = {};
         }else{
-          attrs.options = eval("("+attrs.options+")");
+          attrs.options = scope.options;
         }
+        
         if (attrs.props){
           for (var i in objProps){
             if (attrs.props === objProps[i].name){
