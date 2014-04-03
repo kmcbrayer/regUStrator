@@ -1,10 +1,17 @@
-parse html in js:??
-get <header>
-	for div in header:
-	add box at top of screen
-	color and text in box.
-get <article>
-	for div in article:
-	make flat page
+Overall notes:
+	parse html in js:??
+	get <header>
+		for div in header:
+		add box at top of screen
+		color and text in box.
+	get <article>
+		for div in article:
+		make flat page
 
-	
+specific feature notes:
+1.WSAD camera movement
+2.set up dev room:
+	a. set up tests
+	b. camera toggle button
+3.images on boxes
+4.three point plane 
