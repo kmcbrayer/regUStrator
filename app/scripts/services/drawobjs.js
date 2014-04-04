@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('regUstratorApp')
-  .factory('drawObjs', function () {
+  .factory('drawObjs', function (objProps) {
     //this is for all objects to be drawn on 
     var ObjFactory = function(){};
 
@@ -17,7 +17,7 @@ angular.module('regUstratorApp')
         'width':1,
         'depth':1,
         'color': 0xff0000
-      }
+      };
       for (var key in boxProperties){
         for (var k in props){
           if (k === key){
@@ -43,7 +43,7 @@ angular.module('regUstratorApp')
         'y2':0,
         'z2':0,
         'color':0xCCCCCC
-      }
+      };
       for (var key in lineProperties){
         for (var k in props){
           if (k === key){

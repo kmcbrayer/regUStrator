@@ -1,4 +1,4 @@
-1. WSAD CAmera
+1. WSAD Camera
 2. Dev env
 	a. tests
 	b. camera toggle 
