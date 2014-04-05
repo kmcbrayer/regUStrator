@@ -1,17 +1,19 @@
+<div class="window" ng-controller="MainCtrl">
 
-<div style="border:1px solid black;margin-left:100px;width:910px">
 <screen id="main_screen"></screen>
-<camera options="{'x':0,'y':3,'z':10}"></camera>
+<camera></camera>
 
 <box props="box1"></box>
 <box props="box2"></box>
 <box options="{'x':1,'y':2,'z':3,'color':100}"></box>
 
 <line props="line1"></line>
-<line options="{'x1':0,'y1':-10,'x2':0,'y2':10}">
-</line>
+<line options="{'x1':0,'y1':-10,'x2':0,'y2':10}"></line>
+<line options="{'x1':0,'z1':-10,'x2':0,'z2':10}"></line>
 
 <renderer></renderer>
 </div>
 
-
+<div class="cameraBtn" ng-click="toggleCamera()">
+  Toggle Camera
+</div>

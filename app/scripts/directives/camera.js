@@ -9,14 +9,27 @@ angular.module('regUstratorApp')
         options: '='
       },
       link: function postLink(scope, element, attrs) {
-        sceneData.camera = new THREE.PerspectiveCamera( 75, 700/ 600, 0.1, 1000 );
-        attrs.options = utils.setProperties(scope,attrs);
-        sceneData.camera.position.x = attrs.options.x;
-        sceneData.camera.position.y = attrs.options.y;
-        sceneData.camera.position.z = attrs.options.z;
+        var cameraDefaults = {
+          'x':0,
+          'y':3,
+          'z':10,
+          'fov':75,
+          'aspect':sceneData.width/ sceneData.height,
+          'near':0.1,
+          'far':100,
+        };
+        sceneData.camera = new THREE.PerspectiveCamera( 
+          cameraDefaults.fov, 
+          cameraDefaults.aspect,
+          cameraDefaults.near,
+          cameraDefaults.far
+        );
+
+        sceneData.camera.position.x = cameraDefaults.x;
+        sceneData.camera.position.y = cameraDefaults.y;
+        sceneData.camera.position.z = cameraDefaults.z;
 
         sceneData.controls = new THREE.OrbitControls( sceneData.camera );
-        
       }
     };
   });
