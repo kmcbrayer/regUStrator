@@ -8,7 +8,9 @@ angular.module('regUstratorApp')
       link: function postLink(scope, element, attrs) {
         sceneData.scene = new THREE.Scene();
       	sceneData.renderer = new THREE.WebGLRenderer(); 
-      	sceneData.renderer.setSize( 900, 700 );
+        sceneData.height = $(window).height();
+        sceneData.width = $(window).width();
+      	sceneData.renderer.setSize( sceneData.width, sceneData.height );
         //fog
         sceneData.scene.fog = new THREE.Fog( 0xffffff, 2000, 10000 );
         sceneData.renderer.setClearColor( sceneData.scene.fog.color, 1 );

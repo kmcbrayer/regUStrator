@@ -1,23 +1,35 @@
 'use strict';
 
 angular.module('regUstratorApp')
-  .directive('camera', function (sceneData) {
+  .directive('camera', function (sceneData,utils) {
     return {
       template: '<div></div>',
       restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        sceneData.camera = new THREE.PerspectiveCamera( 75, 700/ 600, 0.1, 1000 );
-        //camera 
-        if (!attrs.options){
-          attrs.options = {x:2,y:2,z:5};
-        }else{
-          attrs.options = eval("("+attrs.options+")");
-        }
-        sceneData.camera.position.x = attrs.options.x;
-        sceneData.camera.position.y = attrs.options.y;
-        sceneData.camera.position.z = attrs.options.z;
+      scope: {
+        options: '='
+      },
+      link: function postLink(scope, docBody, attrs) {
+        var cameraDefaults = {
+          'x':0,
+          'y':3,
+          'z':10,
+          'fov':75,
+          'aspect':sceneData.width/ sceneData.height,
+          'near':0.1,
+          'far':100,
+        };
+        sceneData.camera = new THREE.PerspectiveCamera( 
+          cameraDefaults.fov, 
+          cameraDefaults.aspect,
+          cameraDefaults.near,
+          cameraDefaults.far
+        );
 
-        sceneData.controls = new THREE.OrbitControls( sceneData.camera );
+        sceneData.camera.position.x = cameraDefaults.x;
+        sceneData.camera.position.y = cameraDefaults.y;
+        sceneData.camera.position.z = cameraDefaults.z;
+        
+        sceneData.controls = new THREE.OrbitControls(sceneData.camera);
         
       }
     };

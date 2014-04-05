@@ -11,12 +11,9 @@ angular.module('regUstratorApp')
         }
         sceneData.render = function() {
         	requestAnimationFrame(sceneData.render);
+          if (sceneData.cameraView === 'fPerson') sceneData.controls.update();
         	sceneData.renderer.render(sceneData.scene, sceneData.camera);
-          //drawObjs.objs[0].rotation.x += 0.1;
-          //drawObjs.objs[0].rotation.y += 0.1;
         };
-        //for now have to add events here
-        sceneData.controls.addEventListener( 'change', sceneData.render );
         sceneData.render();
       }
     };
