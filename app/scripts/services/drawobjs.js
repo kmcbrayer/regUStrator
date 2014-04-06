@@ -63,6 +63,37 @@ angular.module('regUstratorApp')
     };
     Line.prototype = new ObjFactory();
     Line.prototype.constructor = Line;
+
+    var Triangle = function(props){
+      var triangleProperties = {
+        'x1':-5,
+        'y1':0,
+        'z1':0,
+        'x2':-5,
+        'y2':3,
+        'z2':2,
+        'x3':-5,
+        'y3':3,
+        'z3':-2,
+        'color':0xff0000
+      };
+      for (var key in triangleProperties){
+        for (var k in props){
+          if (k === key){
+            triangleProperties[key] = props[k];
+          }
+        }
+      }
+      var mesh = new THREE.MeshBasicMaterial({color:triangleProperties.color});
+      var geometry = new THREE.Geometry();
+      geometry.vertices.push(new THREE.Vector3(triangleProperties.x1,triangleProperties.y1,triangleProperties.z1));
+      geometry.vertices.push(new THREE.Vector3(triangleProperties.x2,triangleProperties.y2,triangleProperties.z2));
+      geometry.vertices.push(new THREE.Vector3(triangleProperties.x3,triangleProperties.y3,triangleProperties.z3));
+      geometry.faces.push(new THREE.Face3());
+      return new THREE.Mesh(geometry,mesh);
+    };
+    Line.prototype = new ObjFactory();
+    Line.prototype.constructor = Triangle;
     
     ObjFactory.prototype.init = function(options){
       if (options.type === 'Box'){
@@ -70,6 +101,9 @@ angular.module('regUstratorApp')
       }
       if (options.type === 'Line'){
         this.objs.push(new Line(options.props));
+      }
+      if (options.type === 'Triangle'){
+        this.objs.push(new Triangle(options.props));
       }
     };
     

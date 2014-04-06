@@ -1,8 +1,8 @@
-1. WSAD Camera
+#1. WSAD Camera
 2. Dev env
 	a. tests
-	b. camera toggle 
-3. 3 point planes
+	#b. camera toggle 
+3. planes 3/4 point
 4. images on things
 
 	
