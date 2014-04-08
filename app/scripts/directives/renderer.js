@@ -9,7 +9,6 @@ angular.module('regUstratorApp')
         for (var obj in drawObjs.objs){
           sceneData.scene.add(drawObjs.objs[obj]);
         }
-        console.log(sceneData.scene);
         sceneData.render = function() {
         	requestAnimationFrame(sceneData.render);
           if (sceneData.cameraView === 'fPerson') sceneData.controls.update();
