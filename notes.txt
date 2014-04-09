@@ -1,4 +1,4 @@
-#1. WSAD Camera
+1. WSAD Camera - fix(onclick is being taken by the pointer lock)
 2. Dev env
 	a. tests
 	#b. camera toggle 
