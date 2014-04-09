@@ -63,6 +63,83 @@ angular.module('regUstratorApp')
     };
     Line.prototype = new ObjFactory();
     Line.prototype.constructor = Line;
+
+    var Triangle = function(props){
+      var triangleProperties = {
+        'x1':-5,
+        'y1':0,
+        'z1':0,
+        'x2':-3,
+        'y2':3,
+        'z2':0,
+        'x3':-7,
+        'y3':3,
+        'z3':0,
+        'color':0xff0000
+      };
+      for (var key in triangleProperties){
+        for (var k in props){
+          if (k === key){
+            triangleProperties[key] = props[k];
+          }
+        }
+      }
+      var geom = new THREE.Geometry();
+
+      geom.vertices.push( new THREE.Vector3(triangleProperties.x1,triangleProperties.y1,triangleProperties.z1) );
+      geom.vertices.push( new THREE.Vector3(triangleProperties.x2,triangleProperties.y2,triangleProperties.z2) );
+      geom.vertices.push( new THREE.Vector3(triangleProperties.x3,triangleProperties.y3,triangleProperties.z3) );
+
+      geom.faces.push( new THREE.Face3( 0, 1, 2 ) );
+      geom.computeFaceNormals();
+
+      return new THREE.Mesh(
+        geom, 
+        new THREE.MeshBasicMaterial({
+          color: triangleProperties.color ,
+          side:THREE.DoubleSide
+        }) 
+      );
+    };
+    Triangle.prototype = new ObjFactory();
+    Triangle.prototype.constructor = Triangle;
+
+    var Plane = function(props){
+      var planeProperties = {
+        'x1':5,
+        'y1':0,
+        'z1':0,
+        'x2':3,
+        'y2':3,
+        'z2':0,
+        'x3':5,
+        'y3':6,
+        'z3':0,
+        'x4':7,
+        'y4':3,
+        'z4':0,
+        
+        'color':0x00CCDD
+      };
+      for (var key in planeProperties){
+        for (var k in props){
+          if (k === key){
+            planeProperties[key] = props[k];
+          }
+        }
+      }
+      
+      var plane = new THREE.Mesh( 
+        new THREE.PlaneGeometry(100,100,1,1),
+        new THREE.MeshBasicMaterial({color:planeProperties.color,side: THREE.DoubleSide})
+      );
+      plane.rotation.x = -Math.PI/2;
+      plane.position.y = -1;
+
+      return plane;
+    };
+    Plane.prototype = new ObjFactory();
+    Plane.prototype.constructor = Plane;
     
     ObjFactory.prototype.init = function(options){
       if (options.type === 'Box'){
@@ -70,6 +147,12 @@ angular.module('regUstratorApp')
       }
       if (options.type === 'Line'){
         this.objs.push(new Line(options.props));
+      }
+      if (options.type === 'Triangle'){
+        this.objs.push(new Triangle(options.props));
+      }
+      if (options.type === 'Plane'){
+        this.objs.push(new Plane(options.props));
       }
     };
     
