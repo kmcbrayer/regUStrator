@@ -34,7 +34,6 @@ angular.module('regUstratorApp')
           docBody.requestPointerLock();
         });
         var pointerlockchange = function ( event ) {
-          console.log('called');
           if ( document.pointerLockElement === docBody || document.mozPointerLockElement === docBody || document.webkitPointerLockElement === docBody ) {
             sceneData.controls.enabled = true;
           } else {
@@ -53,11 +52,24 @@ angular.module('regUstratorApp')
           docBody.requestPointerLock();
         });
         //need to center camera on origin
+        
         sceneData.camera.position.x = 0;
         sceneData.camera.position.y = 3;
         sceneData.camera.position.z = 10;
         
         sceneData.controls = new THREE.OrbitControls(sceneData.camera);
+        
+      },
+      cleanCam: function(){
+        if (typeof(sceneData.controls.yawObject) !== undefined){
+          console.log(sceneData.controls.getObject());
+          sceneData.controls.getObject().position.x = 0;
+          sceneData.controls.getObject().position.y = 0;
+          sceneData.controls.getObject().position.z = 0;
+
+          sceneData.controls.getObject().rotation.x = 0;
+          sceneData.controls.getObject().rotation.y = 0;
+        }
       }
     };
   });
