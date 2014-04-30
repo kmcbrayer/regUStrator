@@ -2,15 +2,15 @@
 
 angular.module('regUstratorApp')
   .controller('MainCtrl', function ($scope,sceneData,utils) {
-    sceneData.cameraView = "perspective";
+    sceneData.cameraView = 'perspective';
     $scope.toggleCamera = function(){
-    	sceneData.cameraView = (sceneData.cameraView === "perspective") ? "fPerson" : "perspective";
-    	if (sceneData.cameraView === "perspective"){
-    		sceneData.controls = new THREE.OrbitControls(sceneData.camera);
+    	sceneData.cameraView = (sceneData.cameraView === 'perspective') ? 'fPerson' : 'perspective';
+    	if (sceneData.cameraView === 'perspective'){
+        utils.cleanCam();
+    		utils.makeOrbitCam();
     	}else{
     	  sceneData.controls = new THREE.PointerLockControls(sceneData.camera);
         utils.makeFPersonCam();
     	}
-    	console.log(sceneData.cameraView);
     };
   });

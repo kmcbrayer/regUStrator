@@ -8,7 +8,7 @@ angular.module('regUstratorApp')
       scope: {
         options: '='
       },
-      link: function postLink(scope, docBody, attrs) {
+      link: function postLink(scope, attrs) {
         var cameraDefaults = {
           'x':0,
           'y':3,
@@ -24,13 +24,7 @@ angular.module('regUstratorApp')
           cameraDefaults.near,
           cameraDefaults.far
         );
-
-        sceneData.camera.position.x = cameraDefaults.x;
-        sceneData.camera.position.y = cameraDefaults.y;
-        sceneData.camera.position.z = cameraDefaults.z;
-        
-        sceneData.controls = new THREE.OrbitControls(sceneData.camera);
-        
+        utils.makeOrbitCam();
       }
     };
   });

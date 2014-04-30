@@ -11,10 +11,13 @@ angular.module('regUstratorApp')
         }
         sceneData.render = function() {
         	requestAnimationFrame(sceneData.render);
-          if (sceneData.cameraView === 'fPerson') sceneData.controls.update();
+          if (sceneData.cameraView === 'fPerson'){
+            sceneData.controls.update();
+          } 
         	sceneData.renderer.render(sceneData.scene, sceneData.camera);
         };
         sceneData.render();
+        console.log(sceneData.scene);
       }
     };
   });
