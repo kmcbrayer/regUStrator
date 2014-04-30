@@ -10,5 +10,59 @@
 
 
 
+test and images:
+
+Text and images:
+
+// create a canvas element
+               var canvas1 = document.createElement('canvas');
+               var context1 = canvas1.getContext('2d');
+               context1.font = "Bold 40px Arial";
+               context1.fillStyle = "rgba(255,0,0,0.95)";
+              context1.fillText('Hello, world!', 0, 50);
+              
+               // canvas contents will be used for a texture
+               var texture1 = new THREE.Texture(canvas1) 
+               texture1.needsUpdate = true;
+                
+              var material1 = new THREE.MeshBasicMaterial( {map: texture1, side:THREE.DoubleSide } );
+              material1.transparent = true;
+
+              var mesh1 = new THREE.Mesh(
+                  new THREE.PlaneGeometry(canvas1.width, canvas1.height),
+                  material1
+                );
+               mesh1.position.set(0,50,0);
+               scene.add( mesh1 );
+               
+               /////// draw image on canvas /////////
+
+               // create a canvas element
+               var canvas2 = document.createElement('canvas');
+               var context2 = canvas2.getContext('2d');
+               // canvas contents will be used for a texture
+               var texture2 = new THREE.Texture(canvas2);
+               
+               // load an image
+               var imageObj = new Image();
+               imageObj.src = "images/Dice-Blue-1.png";
+               // after the image is loaded, this function executes
+               imageObj.onload = function()
+               {  
+                    context2.drawImage(imageObj, 0, 0);
+                    if ( texture2 ) // checks if texture exists
+                         texture2.needsUpdate = true;
+               };  
+                
+              var material2 = new THREE.MeshBasicMaterial( {map: texture2, side:THREE.DoubleSide} );
+              material2.transparent = true;
+
+              var mesh2 = new THREE.Mesh(
+                  new THREE.PlaneGeometry(canvas2.width, canvas2.height),
+                  material2
+                );
+               mesh2.position.set(0,50,-50);
+               scene.add( mesh2 );
+
 
 	

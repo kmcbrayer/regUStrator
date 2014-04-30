@@ -13,6 +13,8 @@ module.exports = function(config) {
     files: [
       'app/lib/angular.js',
       'app/lib/jquery.js',
+      'app/lib/three.js',
+      'app/lib/angular-mocks.js',
       'app/lib/angular-cookies.js',
       'app/lib/angular-route.js',
       'app/lib/angular-sanitize.js',
@@ -20,7 +22,7 @@ module.exports = function(config) {
       'app/lib/angular-touch.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',
-      'test/mock/**/*.js',
+      //'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],
 
@@ -47,7 +49,7 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Firefox'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode

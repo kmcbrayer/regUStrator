@@ -1,6 +1,6 @@
 {
   "name": "regUstrator",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -30,8 +30,14 @@
     "time-grunt": "~0.2.1",
     "karma-ng-html2js-preprocessor": "~0.1.0",
     "karma-ng-scenario": "~0.1.0",
-    "zeparser":"~0.0.5",
-    "grunt-karma": "~0.8.2"
+    "zeparser": "~0.0.5",
+    "grunt-karma": "~0.8.2",
+    "karma-jasmine": "~0.1.5",
+    "karma-phantomjs-launcher": "~0.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/kmcbrayer/regUStrator"
   },
   "engines": {
     "node": ">=0.8.0"
