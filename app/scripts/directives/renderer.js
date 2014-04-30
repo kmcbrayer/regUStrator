@@ -17,6 +17,7 @@ angular.module('regUstratorApp')
         	sceneData.renderer.render(sceneData.scene, sceneData.camera);
         };
         sceneData.render();
+        console.log(sceneData.scene);
       }
     };
   });

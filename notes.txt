@@ -1,4 +1,7 @@
-1. WSAD Camera - fix(onclick is being taken by the pointer lock)
+1. text on things:
+	does CSS work?
+	figure out sizing
+	
 2. images on things
 3. animations 
 4. Dev env
