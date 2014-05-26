@@ -11,7 +11,8 @@ describe('Service: box', function () {
     box = _box_;
   }));
 
-  it('should return a new Box object', function () {
-    expect(box.newBox()).toEqual(box.newBox());
+  it('should build a default box with height:1', function () {
+    var tBox = box.newBox();
+    expect(tBox.geometry.height).toEqual(1);
   });
 });

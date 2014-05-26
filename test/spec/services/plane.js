@@ -11,8 +11,9 @@ describe('Service: plane', function () {
     plane = _plane_;
   }));
 
-  it('should do something', function () {
-    expect(!!plane).toBe(true);
+  it('should build a default plane with width: 100', function () {
+    var tPlane = plane.newPlane();
+    expect(tPlane.geometry.width).toEqual(100);
   });
 
 });

@@ -11,8 +11,10 @@ describe('Service: line', function () {
     line = _line_;
   }));
 
-  it('should do something', function () {
-    expect(!!line).toBe(true);
+  it('should build a default line with x1:-10 and x2:10', function () {
+    var tLine = line.newLine();
+    expect(tLine.geometry.vertices[0].x).toBe(-10);
+    expect(tLine.geometry.vertices[1].x).toBe(10);
   });
 
 });
