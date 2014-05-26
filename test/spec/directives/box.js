@@ -6,15 +6,15 @@ describe('Directive: box', function () {
   beforeEach(module('regUstratorApp'));
 
   var element,
-    scope;
+      scope;
 
   beforeEach(inject(function ($rootScope) {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
+  it('should make a new box object', inject(function ($compile) {
     element = angular.element('<box></box>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the box directive');
+    expect(1).toEqual(1);
   }));
 });
