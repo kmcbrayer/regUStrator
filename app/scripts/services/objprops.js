@@ -24,6 +24,12 @@ angular.module('regUstratorApp')
         'attrs':{
           'color':0xCCCCCC
         }
+      },
+      {
+        'name':'plane1',
+        'attrs':{
+          'position_x':2
+        }
       }
 
     ];

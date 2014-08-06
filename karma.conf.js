@@ -18,6 +18,8 @@ module.exports = function(config) {
       'app/lib/angular-sanitize.js',
       'app/lib/angular-resource.js',
       'app/lib/angular-touch.js',
+      'app/lib/angular-mocks/angular-mocks.js',
+      'app/lib/three.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
@@ -47,7 +49,7 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Firefox'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode

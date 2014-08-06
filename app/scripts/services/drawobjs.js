@@ -106,19 +106,12 @@ angular.module('regUstratorApp')
 
     var Plane = function(props){
       var planeProperties = {
-        'x1':5,
-        'y1':0,
-        'z1':0,
-        'x2':3,
-        'y2':3,
-        'z2':0,
-        'x3':5,
-        'y3':6,
-        'z3':0,
-        'x4':7,
-        'y4':3,
-        'z4':0,
-        
+        'position_y': 0,
+        'rotation_x': -Math.PI/2,
+        'rotation_y': 0,
+        'position_x': 0,
+        'size_x': 100,
+        'size_y': 100,
         'color':0x00CCDD
       };
       for (var key in planeProperties){
@@ -130,11 +123,16 @@ angular.module('regUstratorApp')
       }
       
       var plane = new THREE.Mesh( 
-        new THREE.PlaneGeometry(100,100,1,1),
+        new THREE.PlaneGeometry(
+          planeProperties.size_x,
+          planeProperties.size_y,
+          planeProperties.position_x,
+          planeProperties.position_y
+        ),
         new THREE.MeshBasicMaterial({color:planeProperties.color,side: THREE.DoubleSide})
       );
       plane.rotation.x = -Math.PI/2;
-      plane.position.y = -1;
+      plane.position.y = planeProperties.position_y;
 
       return plane;
     };

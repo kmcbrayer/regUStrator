@@ -7,6 +7,9 @@
 4. Dev env
 	a. tests
 	#b. camera toggle 
+5. tests
+  make test objprops objects?? idk how
+
 
 inner text:
 //need to use text geometry

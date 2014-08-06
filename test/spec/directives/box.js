@@ -12,9 +12,21 @@ describe('Directive: box', function () {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
+  it('should make a default box', inject(function ($compile,drawObjs,utils) {
+    //default box
     element = angular.element('<box></box>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the box directive');
+    var newBox = drawObjs.objs[drawObjs.objs.length-1];
+    expect(newBox.position.x).toBe(0);
+    //box using object properties
+    element = angular.element('<box props="box2"></box>');
+    element = $compile(element)(scope);
+    newBox = drawObjs.objs[drawObjs.objs.length-1];
+    expect(newBox.position.z).toBe(-2);
+    //box using inline options
+    element = angular.element('<box options="{\'x\':3,\'y\':2,\'z\':3,\'color\':100}"></box>');
+    element = $compile(element)(scope);
+    newBox = drawObjs.objs[drawObjs.objs.length-1];
+    expect(newBox.position.z).toBe(3);
   }));
 });
