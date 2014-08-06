@@ -8,7 +8,18 @@
 	a. tests
 	#b. camera toggle 
 
+inner text:
+//need to use text geometry
 
+.directive('text', function (sceneData) {
+    return {
+      template: '<div ng-transclude></div>',
+      restrict: 'E',
+      transclude: true,
+      replace: true,
+      link: function postLink(scope, element, attrs) {
+        // create a canvas element
+        var innerText = element.html().split(/[><]/)[2];//so bad
 
 
 	
