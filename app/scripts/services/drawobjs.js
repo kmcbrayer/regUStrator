@@ -135,6 +135,43 @@ angular.module('regUstratorApp')
     };
     Plane.prototype = new ObjFactory();
     Plane.prototype.constructor = Plane;
+
+    var Text = function(text, props){
+      var textProperties = {
+        'font':'helvetiker',
+        'size':2,
+        'height':0.13,
+        'weight': 'normal',
+        'curveSegments': 6,
+        'style':'normal',
+        'bevelEnabled':false,
+        'bevelThickness': 10,
+        'bevelSize': 8,
+        'color': 0xdddddd
+      };
+      for (var key in textProperties){
+        for (var k in props){
+          if (k === key){
+            textProperties[key] = props[k];
+          }
+        }
+      }
+      var mat = new THREE.MeshBasicMaterial({
+          color: textProperties.color
+        });
+      var textGeom = new THREE.TextGeometry(text,{
+          font:textProperties.font,
+          size:textProperties.size,
+          height:textProperties.height,
+          weight: textProperties.weight,
+          curveSegments: textProperties.curveSegments,
+          style: textProperties.style,
+          bevelEnabled: textProperties.bevelEnabled,
+          bevelThickness: textProperties.bevelThickness,
+          bevelSize: textProperties.bevelThickness
+        });
+      return new THREE.Mesh(textGeom,mat);
+    }
     
     ObjFactory.prototype.init = function(options){
       if (options.type === 'Box'){
@@ -148,6 +185,9 @@ angular.module('regUstratorApp')
       }
       if (options.type === 'Plane'){
         this.objs.push(new Plane(options.props));
+      }
+      if (options.type === 'Text'){
+        this.objs.push(new Text(options.text,options.props));
       }
     };
     
