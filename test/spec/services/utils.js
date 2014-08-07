@@ -13,6 +13,8 @@ describe('Service: utils', function () {
 
   it('should do something', function () {
     expect(!!utils).toBe(true);
+    //should do more tests here but if the directives work the SetProperties works,
+    //I am planning on remove the camera switching anyway that was just for testing
   });
 
 });

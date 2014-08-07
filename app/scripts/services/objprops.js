@@ -20,9 +20,21 @@ angular.module('regUstratorApp')
         }
       },
       {
-        'name':'line1',
+        'name':'line2',
         'attrs':{
-          'color':0xCCCCCC
+          'x1':-2
+        }
+      },
+      {
+        'name':'plane1',
+        'attrs':{
+          'size_x':200
+        }
+      },
+      {
+        'name':'triangle2',
+        'attrs':{
+          'x1':0
         }
       }
 

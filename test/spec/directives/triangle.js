@@ -12,9 +12,23 @@ describe('Directive: triangle', function () {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
+  it('should make a default triangle', inject(function ($compile,drawObjs,utils) {
+    //default triangle
     element = angular.element('<triangle></triangle>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the triangle directive');
+    var newtriangle = drawObjs.objs[drawObjs.objs.length-1];
+    expect(newtriangle.geometry.vertices[0].x).toBe(-5);
+  }));
+  it('should make a triangle using object properties', inject(function ($compile,drawObjs,utils){
+    element = angular.element('<triangle props="triangle2"></triangle>');
+    element = $compile(element)(scope);
+    var newtriangle = drawObjs.objs[drawObjs.objs.length-1];
+    expect(newtriangle.geometry.vertices[0].x).toBe(0);
+  }));
+  it('should make a triangle using inline options', inject(function ($compile,drawObjs,utils){
+    element = angular.element('<triangle options="{\'x1\':3}"></triangle>');
+    element = $compile(element)(scope);
+    var newtriangle = drawObjs.objs[drawObjs.objs.length-1];
+    expect(newtriangle.geometry.vertices[0].x).toBe(3);
   }));
 });

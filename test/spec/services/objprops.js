@@ -12,6 +12,7 @@ describe('Service: objProps', function () {
   }));
 
   it('should do something', function () {
+    //this is fine
     expect(!!objProps).toBe(true);
   });
 

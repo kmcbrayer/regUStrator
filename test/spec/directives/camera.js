@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: renderer', function () {
+describe('Directive: camera', function () {
 
   // load the directive's module
   beforeEach(module('regUstratorApp'));
