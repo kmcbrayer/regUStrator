@@ -105,11 +105,10 @@ angular.module('regUstratorApp')
     Triangle.prototype.constructor = Triangle;
 
     var Plane = function(props){
+      //TODO: make vertices accessable
       var planeProperties = {
         'position_y': 0,
         'rotation_x': -Math.PI/2,
-        'rotation_y': 0,
-        'position_x': 0,
         'size_x': 100,
         'size_y': 100,
         'color':0x00CCDD
@@ -125,9 +124,7 @@ angular.module('regUstratorApp')
       var plane = new THREE.Mesh( 
         new THREE.PlaneGeometry(
           planeProperties.size_x,
-          planeProperties.size_y,
-          planeProperties.position_x,
-          planeProperties.position_y
+          planeProperties.size_y
         ),
         new THREE.MeshBasicMaterial({color:planeProperties.color,side: THREE.DoubleSide})
       );

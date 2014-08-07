@@ -28,7 +28,13 @@ angular.module('regUstratorApp')
       {
         'name':'plane1',
         'attrs':{
-          'position_x':2
+          'size_x':200
+        }
+      },
+      {
+        'name':'triangle2',
+        'attrs':{
+          'x1':0
         }
       }
 
