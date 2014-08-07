@@ -13,7 +13,6 @@ describe('Directive: triangle', function () {
   }));
 
   it('should make a default triangle', inject(function ($compile,drawObjs,utils) {
-    //default triangle
     element = angular.element('<triangle></triangle>');
     element = $compile(element)(scope);
     var newtriangle = drawObjs.objs[drawObjs.objs.length-1];

@@ -13,7 +13,6 @@ describe('Directive: box', function () {
   }));
 
   it('should make a default box', inject(function ($compile,drawObjs,utils) {
-    //default box
     element = angular.element('<box></box>');
     element = $compile(element)(scope);
     var newBox = drawObjs.objs[drawObjs.objs.length-1];

@@ -11,12 +11,12 @@ angular.module('regUstratorApp')
       link: function postLink(scope, attrs) {
         var cameraDefaults = {
           'x':0,
-          'y':3,
-          'z':10,
+          'y':5,
+          'z':20,
           'fov':75,
           'aspect':sceneData.width/ sceneData.height,
           'near':0.1,
-          'far':100,
+          'far':1000,
         };
         sceneData.camera = new THREE.PerspectiveCamera( 
           cameraDefaults.fov, 

@@ -36,6 +36,12 @@ angular.module('regUstratorApp')
         'attrs':{
           'x1':0
         }
+      },
+      {
+        'name':'text2',
+        'attrs':{
+          'x':-2
+        }
       }
 
     ];

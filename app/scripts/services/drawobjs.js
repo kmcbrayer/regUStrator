@@ -147,7 +147,10 @@ angular.module('regUstratorApp')
         'bevelEnabled':false,
         'bevelThickness': 10,
         'bevelSize': 8,
-        'color': 0xdddddd
+        'color': 0xdddddd,
+        'x':0,
+        'y':0,
+        'z':0
       };
       for (var key in textProperties){
         for (var k in props){
@@ -158,7 +161,7 @@ angular.module('regUstratorApp')
       }
       var mat = new THREE.MeshBasicMaterial({
           color: textProperties.color
-        });
+      });
       var textGeom = new THREE.TextGeometry(text,{
           font:textProperties.font,
           size:textProperties.size,
@@ -168,10 +171,15 @@ angular.module('regUstratorApp')
           style: textProperties.style,
           bevelEnabled: textProperties.bevelEnabled,
           bevelThickness: textProperties.bevelThickness,
-          bevelSize: textProperties.bevelThickness
+          bevelSize: textProperties.bevelSize
         });
-      return new THREE.Mesh(textGeom,mat);
+      var text = new THREE.Mesh(textGeom,mat);
+      text.position.set(textProperties.x,textProperties.y,textProperties.z);
+      return text;
     }
+    Text.prototype = new ObjFactory();
+    Text.prototype.constructor = Text;
+
     
     ObjFactory.prototype.init = function(options){
       if (options.type === 'Box'){

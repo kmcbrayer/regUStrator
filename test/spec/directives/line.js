@@ -13,7 +13,6 @@ describe('Directive: line', function () {
   }));
 
   it('should make a default line', inject(function ($compile,drawObjs,utils) {
-    //default line
     element = angular.element('<line></line>');
     element = $compile(element)(scope);
     var newline = drawObjs.objs[drawObjs.objs.length-1];
