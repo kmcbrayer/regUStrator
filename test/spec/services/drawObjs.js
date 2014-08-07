@@ -12,6 +12,7 @@ describe('Service: drawObjs', function () {
   }));
 
   it('should do something', function () {
+    //mostly taken car of in the directive tests
     expect(!!drawObjs).toBe(true);
   });
 
