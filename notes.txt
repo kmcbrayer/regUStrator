@@ -1,5 +1,5 @@
-1. text on things:
-	does CSS work?
+c-1. text on things:
+	c-does CSS work? lol no
 	c-figure out sizing
 	
 2. images on things
