@@ -11,7 +11,8 @@ describe('Service: drawObjs', function () {
     drawObjs = _drawObjs_;
   }));
 
-  it('should make a box object', function () {
+  it('should do something', function () {
+    //mostly taken car of in the directive tests
     expect(!!drawObjs).toBe(true);
   });
 
