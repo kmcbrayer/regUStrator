@@ -1,5 +1,6 @@
 // Karma configuration
 // http://karma-runner.github.io/0.10/config/configuration-file.html
+'use strict'
 
 module.exports = function(config) {
   config.set({
@@ -13,6 +14,8 @@ module.exports = function(config) {
     files: [
       'app/lib/angular.js',
       'app/lib/jquery.js',
+      'app/lib/three.js',
+      'app/lib/angular-mocks.js',
       'app/lib/angular-cookies.js',
       'app/lib/angular-route.js',
       'app/lib/angular-sanitize.js',
@@ -23,7 +26,7 @@ module.exports = function(config) {
       'app/three/helvetiker_regular.typeface.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',
-      'test/mock/**/*.js',
+      //'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],
 

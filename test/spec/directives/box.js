@@ -6,7 +6,7 @@ describe('Directive: box', function () {
   beforeEach(module('regUstratorApp'));
 
   var element,
-    scope;
+      scope;
 
   beforeEach(inject(function ($rootScope) {
     scope = $rootScope.$new();

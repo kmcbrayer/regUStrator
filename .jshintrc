@@ -17,10 +17,19 @@
   "unused": false,
   "strict": true,
   "trailing": false,
-  "smarttabs": false,
+  "smarttabs": true,
   "-W099": true,
   "globals": {
     "angular": false,
-    "THREE": false
+    "THREE": false,
+    /* mocha */
+    "describe"   : false,
+    "it"         : false,
+    "before"     : false,
+    "beforeEach" : false,
+    "after"      : false,
+    "afterEach"  : false,
+    "inject"     : false,
+    "expect"     : false
   }
 }

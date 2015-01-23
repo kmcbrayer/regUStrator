@@ -11,7 +11,11 @@ describe('Service: sceneData', function () {
     sceneData = _sceneData_;
   }));
 
+<<<<<<< HEAD:test/spec/services/scenedata.js
   it('should do something', function () {
+=======
+  it('should build a new empty object to hold sceneData', function () {
+>>>>>>> feature/write_tests:test/spec/services/sceendata.js
     expect(!!sceneData).toBe(true);
   });
 

@@ -4,8 +4,7 @@
 	
 2. images on things
 3. animations 
-c-4. Dev env
-	c-tests
-	c-camera toggle 
-5. all of the lights
+4. Dev env
+	a. tests
+	#b. camera toggle 
 	

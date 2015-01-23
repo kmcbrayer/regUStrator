@@ -11,7 +11,7 @@ describe('Directive: renderer', function () {
   beforeEach(inject(function ($rootScope) {
     scope = $rootScope.$new();
   }));
-
+  
   it('should be fine', inject(function ($compile) {
     //will not compile without screen being initialized first.
     //may need to test both in tandem
